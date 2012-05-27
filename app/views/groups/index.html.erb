@@ -42,7 +42,8 @@ function submit_new_group(new_group_name) {
   <%=
  remote_function(
     :url  => new_assignment_group_path(@assignment),
-    :with => "'&new_group_name=' + new_group_name")
+    :with => "'&new_group_name=' + new_group_name",
+    :method => :get )
   %>
 }
 

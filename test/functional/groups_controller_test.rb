@@ -128,6 +128,25 @@ class GroupsControllerTest < AuthenticatedControllerTest
         assert render_template 'groups/table_row/_filter_table_row.html.erb'
         assert assign_to(:assignment) { @assignment }
         assert assign_to :new_grouping
+        assert_routing({:path => "en/assignments/" + @assignment.id.to_s + "/groups/new",
+                        :method => :get},
+                       {:assignment_id => @assignment.id.to_s,
+                        :controller => "groups",
+                        :locale => "en",
+                        :new_group_name => "testing",
+                        :action => "new"},
+                        {},
+                        {:new_group_name => "testing"})
+      end
+      
+      should "be able to create a manual groupname" do
+        post_as @admin,
+                :add_group,
+                {:assignment_id => @assignment.id, :new_group_name => "test"}
+        assert_response :success
+        assert render_template 'groups/table_row/_filter_table_row.html.erb'
+        assert assign_to(:assignment) { @assignment }
+        assert assign_to :new_grouping
       end
     end #:add_group
 

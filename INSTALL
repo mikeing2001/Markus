@@ -35,7 +35,7 @@ see http://www.markusproject.org/download/
   As mentioned previously, MarkUs is a Ruby on Rails application. General
   requirements are as follows (Note: MarkUs also works using Phusion Passenger):
 
-    * Ruby (version 1.8.7) (version 1.9.x are not supported yet)
+    * Ruby (version 1.8.7 and higher)
     * Ruby development package (required for compiling Ruby PostgreSQL drivers)
     * net/https Ruby library (libopenssl-ruby Debian package)
     * RDoc (required for Gem)
